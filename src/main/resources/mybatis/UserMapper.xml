@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.UserMapper">
+	<resultMap id="userWithRoles" type="User">
+		<id />
+		<result />
+		<result />
+		<result />
+		<collection>
+			<result />
+		</collection>
+	</resultMap>
+	
+	<select id="selectUserByLoginId" resultMap="userWithRoles">
+		SELECT
+			users.id
+		    ,users.name
+		    ,users.login_id
+		    ,users.login_pass
+		    ,CONCAT('ROLE_',roles.name)
+				AS name
+		FROM users
+		JOIN user_roles
+			ON users.id = user_roles.user_id
+		JOIN roles
+			ON user_roles.role_id = roles.id
+		WHERE users.login_id = #{loginId};
+	</select>
+</mapper>

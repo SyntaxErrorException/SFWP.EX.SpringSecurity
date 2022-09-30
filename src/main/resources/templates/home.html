@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:test="Home"></title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1>Home</h1>
+	<ul>
+		<li><a th:href=@{/loginUser}>ログイン中のユーザ専用</a></li>
+		<li><a th:href=@{/normal}>通常ユーザ専用</a></li>
+		<li><a th:href=@{/admin}>管理者ユーザ専用</a></li>
+	</ul>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="ログアウト" />
+	</form>
+</body>
+</html>
