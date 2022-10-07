@@ -24,9 +24,10 @@ public class User implements UserDetails{
 	// ロールのリストを返す
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return roles.stream()
-			.map(role -> new SimpleGrantedAuthority(role))
-			.toList();
+		return roles
+				.stream()
+				.map(role -> new SimpleGrantedAuthority(role))
+				.toList();
 	}
 	@Override
 	public String getPassword() {

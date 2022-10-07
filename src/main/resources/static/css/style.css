@@ -7,3 +7,6 @@ ul{
 	display: inline-block;
 	text-align: left;
 }
+.error{
+	color: red;
+}
