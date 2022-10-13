@@ -12,7 +12,9 @@
 
 	<form th:action="@{/login}" method="post" th:object="${user}">
 		<!-- ログイン非認証エラー -->
-		<p class="error" th:if="${authError}" th:text="${authError}"></p>
+		<p class="error" th:if="${#fields.hasGlobalErrors()}"
+						 th:each="error : ${#fields.globalErrors()}"
+						 th:text="${error}"></p>
 
 		<span class="error" th:errors="*{loginId}"></span>
 		<p>
